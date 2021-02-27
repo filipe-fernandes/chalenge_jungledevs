@@ -1,49 +1,14 @@
 """
-Accounts Models
+Topics Models
 """
-###
-# Libraries
-###
-import uuid
 
-from django.contrib.auth.models import AbstractUser
 from django.db import models
-from django.utils.translation import ugettext as _
+from helpers.models import TimestampModel
+from accounts.models import User
 
-
-###
-# Choices
-###
-
-
-###
-# Querysets
-###
-
-
-###
-# Models
-###
-class User(AbstractUser):
-    # Override user model here
-    pass
-
-
-class ChangeEmailRequest(models.Model):
-    # Helpers
-    uuid = models.UUIDField(
-        default=uuid.uuid4,
-        editable=False,
-        verbose_name=_('uuid'),
-    )
-
-    # User model
-    user = models.OneToOneField(
-        User,
-        on_delete=models.CASCADE,
-        related_name='change_email_request',
-        verbose_name=_('user'),
-    )
-
-    # Email
-    email = models.EmailField(verbose_name=_('email'))
+class Topic(TimestampModel):
+    name = models.CharField(max_length=64,null=False,blank=False,unique=True)
+    title = models.CharField(max_length=64,null=False,blank=False,unique=True)
+    author = models.ForeignKey(User,null=False,on_delete=models.CASCADE)
+    description = models.TextField(max_length=300,null=False,blank=False)
+    url_name = models.SlugField(max_length=30,null=False,blank=False,unique=True)

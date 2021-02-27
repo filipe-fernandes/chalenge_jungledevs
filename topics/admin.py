@@ -14,15 +14,13 @@ from . import models
 # Inline Admin Models
 ###
 
-
+# class PostInline(admin.StackedInline):
+#     model = Post
+#     extra = 1
 ###
 # Main Admin Models
 ###
-@admin.register(models.User)
-class UserAdmin(BaseUserAdmin):
-    list_display = ('id', 'email', 'username', 'is_active', 'last_login', 'date_joined',)
-
-@admin.register(models.ChangeEmailRequest)
-class ChangeEmailRequestAdmin(admin.ModelAdmin):
-    list_display = ('email',)
-    readonly_fields = ('uuid',)
+@admin.register(models.Topic)
+class TopicAdmin(admin.ModelAdmin):
+    list_display = ('id', 'title', 'name', 'author', 'description', 'url_name', 'created_at', 'updated_at',)
+    # inlines = [PostInline]

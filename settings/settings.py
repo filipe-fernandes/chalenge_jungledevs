@@ -36,8 +36,10 @@ DEBUG = ENVIRONMENT == 'development' or os.environ.get('DEBUG', False)
 ALLOWED_HOSTS = [
     '.us-west-2.elb.amazonaws.com',
     '.compute-1.amazonaws.com',
-    'localhost',
+    'localhost', 
+    '127.0.0.1'
 ]
+# ALLOWED_HOSTS = ['198.211.99.20', 'localhost', '127.0.0.1']
 
 EC2_PRIVATE_IP = None
 try:
@@ -89,6 +91,8 @@ INSTALLED_APPS = [
 
     # Applications
     'accounts',
+
+    'topics',
 ]
 
 SITE_ID = 1
