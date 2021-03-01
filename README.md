@@ -108,4 +108,3 @@ If you have any doubts on how to implement these structures, check the
 [Nested Routers documentation](https://github.com/alanjds/drf-nested-routers) and the 
 [lookup field section on the Routers documentation](https://www.django-rest-framework.org/api-guide/routers/#simplerouter).
 
-###test just to verify
