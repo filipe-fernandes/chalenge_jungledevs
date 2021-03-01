@@ -91,7 +91,7 @@ INSTALLED_APPS = [
 
     # Applications
     'accounts',
-
+    'posts',
     'topics',
 ]
 
